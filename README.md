@@ -1,3 +1,4 @@
+
 # 18 NoSQL: Social Network API
 
 This application attempts to build an API for a social network using Express.js for routing, a MongoDB database, and the Mongoose ODM in the form of a social network's functionality. 
@@ -18,11 +19,13 @@ The following gif shows the functionality of the server:
 
 
 ## Links
+
 - gitHub Repo: https://github.com/kjmckinley/social-network-api.git
 - Live gitHub link: https://kjmckinley.github.io/social-network-api/
 
 
 ## Contributors
+
 - Kyle McKinley - GitHub: kjmckinley
 - Ritchie Ortiz - GitHub: xRitchie91
 - Peter Martinez - GitHub: Pmarti53
