@@ -1,44 +1,42 @@
 const { Schema, model } = require('mongoose');
+const dateformat = require('../utils/dateFormat');
 
-const userSchema = new Schema(
-  {
-    username: {
-      type: String,
-      required: true,
-      unique: true,
-      trim: true,
+
+const UserSchema = new Schema(
+    {
+        userName: {
+            type: String,
+            required: true,
+            trim: true,
+            unique: true
+        },
+        email: {
+            type: String,
+            required: true,
+            match: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.])/,
+            unique: true
+        },
+        thoughts: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Thought'
+            }
+        ],
+        friends: [this]
     },
-    email: {
-      type: String,
-      required: true,
-      unique: true,
-      match: [/.+@.+\..+/, 'Must match an email address!'],
-    },
-    thoughts: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'Thought',
-      },
-    ],
-    friends: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'User',
-      },
-    ],
-  },
-  {
-    toJSON: {
-      virtuals: true,
-    },
-    id: false,
-  }
+    {
+        toJSON: {
+            virtuals: true,
+            getters: true
+        },
+        id: false
+    }
 );
 
-userSchema.virtual('friendCount').get(function () {
-  return this.friends.length;
-});
+// UserSchema.virtual('friendCount').get(function () {
+//     return this.friends.length;
+// });
 
-const User = model('User', userSchema);
+const User = model('User', UserSchema);
 
 module.exports = User;
