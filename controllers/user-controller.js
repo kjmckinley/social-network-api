@@ -13,6 +13,7 @@ const userController = {
     },
 
 
+    // get existing user
     getUserById({ params }, res) {
         User.findOne({ _id: params.id })
             .populate({
@@ -32,6 +33,7 @@ const userController = {
             });
     },
 
+    // make a new user
     createUser({ body }, res) {
         User.create(body)
             .then(dbUserData => res.json(dbUserData))
@@ -41,6 +43,7 @@ const userController = {
             });
     },
 
+    // update user info
     updateUser({ params, body }, res) {
         User.findOneAndUpdate({ _id: params.id }, body, { new: true })
             .then(dbUserData => {
@@ -53,6 +56,7 @@ const userController = {
             .catch(err => res.status(400).json(err))
     },
 
+    // delete user
     deleteUser({ params }, res) {
         User.findByIdAndDelete({ _id: params.id })
             .then(dbUserData => {

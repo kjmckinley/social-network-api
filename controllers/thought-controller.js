@@ -21,6 +21,7 @@ const thoughtController = {
             .catch(err => res.json(err));
     },
 
+    // delete user thought
     removeThought({ params }, res) {
         Thought.findOneAndDelete({ _id: params.thoughtId })
             .then(deletedThought => {
@@ -43,6 +44,7 @@ const thoughtController = {
             .catch(err => res.json(err));
     },
 
+    // add a user reaction to a thought
     addReaction({ params, body }, res) {
         Comment.findByIdAndUpdate(
             { _id: params.thoughtId },
