@@ -1,6 +1,8 @@
   
+// require express package
 const router = require('express').Router();
 
+// set up different variables for routers to connect to
 const {
     getAllUsers,
     getUserById,
@@ -9,7 +11,7 @@ const {
     deleteUser
 } = require('../../controllers/user-controller');
 
-//GET all and POST at /api/users
+// get all users and POST at /api/users
 router
     .route('/')
     .get(getAllUsers)

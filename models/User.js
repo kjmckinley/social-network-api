@@ -10,12 +10,15 @@ const UserSchema = new Schema(
             trim: true,
             unique: true
         },
+
+        // use REGEX to verify that email is in proper format
         email: {
             type: String,
             required: true,
             match: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.])/,
             unique: true
         },
+
         thoughts: [
             {
                 type: Schema.Types.ObjectId,
@@ -24,6 +27,7 @@ const UserSchema = new Schema(
         ],
         friends: [this]
     },
+
     {
         toJSON: {
             virtuals: true,
@@ -32,10 +36,6 @@ const UserSchema = new Schema(
         id: false
     }
 );
-
-// UserSchema.virtual('friendCount').get(function () {
-//     return this.friends.length;
-// });
 
 const User = model('User', UserSchema);
 
