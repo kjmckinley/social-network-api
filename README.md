@@ -21,9 +21,11 @@ SO THAT my website can handle large amounts of unstructured data
 The following gif shows the functionality of the server:
 ![Demo Server](/assets/server-demo.gif)
 
+
 ## Links
 - gitHub Repo: https://github.com/kjmckinley/social-network-api.git
 - Live gitHub link: https://kjmckinley.github.io/social-network-api/
+
 
 ## Contributors
 - Kyle McKinley - GitHub: kjmckinley
